@@ -7,6 +7,15 @@ const DATA_TYPES = {
     難易度: "category"
 };
 
+const DISPLAIES_FOR_SP = {
+    言語: "primary",
+    主な用途: "none",
+    人気度: "secondary",
+    難易度: "secondary"
+};
+
+
+
 const numeralColumns = {};
 const categoricalColumns = {};
 
@@ -165,6 +174,7 @@ function createTableContents(records) {
         const th = document.createElement("th");
         th.textContent = key; // 各ヘッダーセルにカラム名を設定
         th.dataset.type = DATA_TYPES[key]; // データタイプをdata-type属性に設定
+        th.dataset.spDisplay = DISPLAIES_FOR_SP[key]; // スマホの表示情報を dataset に与える
         th.addEventListener("click", function () {
             setSort(th, records);
         });
@@ -275,6 +285,7 @@ function createTableBodyRows(tbody, records, keyword) {
         }
         for (let key in record) {
             const td = document.createElement("td");
+            td.dataset.spDisplay = DISPLAIES_FOR_SP[key]; // スマホの表示情報を dataset に与える
             td.textContent = record[key]; // 各データセルに値を設定
             const text = record[key];
 

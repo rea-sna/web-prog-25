@@ -19,6 +19,39 @@ body {
     }
 }
 
+#detail {
+    dl {
+        border-top: solid 1px maroon;
+        padding-top: 0.7em;
+        padding-bottom: 0.7em;
+        margin: 0;
+
+        &:last-child {
+            border-bottom: solid 1px maroon;
+        }
+    }
+
+    dt {
+        margin-bottom: 0.2em;
+        font-weight: bold;
+    }
+
+    dd {
+        margin: 0;
+        font-size: 1.2em;
+    }
+
+    button {
+        margin-top: 1em;
+        border: none;
+        width: 100%;
+        color: white;
+        background-color: maroon;
+        line-height: 2.5;
+        border-radius: 0.5lh;
+    }
+}
+
 table {
     border-collapse: collapse;
     border: solid 1px maroon;
@@ -107,6 +140,45 @@ th {
                 background-color: maroon;
                 color: white;
             }
+        }
+    }
+}
+
+@media (max-width: 600px) {
+    table {
+        width: 100%;
+    }
+
+    thead {
+        display: none;
+    }
+
+    tr {
+        padding: 0.5em;
+        display: flex;
+        flex-wrap: wrap;
+        gap: 0.2em 0.5em;
+    }
+
+    th,
+    td {
+        &[data-sp-display="none"] {
+            display: none;
+        }
+    }
+
+    td {
+        border: none;
+
+        &[data-sp-display="primary"] {
+            font-size: 1.2em;
+            font-weight: bold;
+            flex-basis: 100%;
+        }
+
+        &[data-sp-display="secondary"] {
+            padding: 0 0.8em;
+            border-radius: 0.5lh;
         }
     }
 }
