@@ -1,0 +1,112 @@
+body {
+    background-color: beige;
+    color: maroon;
+}
+
+body {
+    #detail {
+        display: none;
+    }
+
+    &.-showdetail {
+        #master {
+            display: none;
+        }
+
+        #detail {
+            display: block;
+        }
+    }
+}
+
+table {
+    border-collapse: collapse;
+    border: solid 1px maroon;
+}
+
+tr {
+    border-top: solid 1px maroon;
+}
+
+th,
+td {
+    border-left: solid 1px maroon;
+}
+
+th {
+    cursor: pointer;
+    position: relative;
+    padding-right: 1.2em;
+
+    &::after {
+        content: "";
+        display: inline-block;
+        position: absolute;
+        top: calc(50% - 0.5em);
+        right: 0.1em;
+        width: 1em;
+        height: 1em;
+    }
+
+    &[data-sort-order="asc"]::after {
+        content: "▲";
+    }
+
+    &[data-sort-order="desc"]::after {
+        content: "▼";
+    }
+}
+
+.stats {
+    border: solid 1px maroon;
+    background-color: white;
+    height: 250px;
+
+    >.graph {
+        height: 230px;
+        position: relative;
+
+        >.bar {
+            position: absolute;
+            bottom: 60px;
+            width: 10px;
+            background-color: maroon;
+
+            >.label {
+                position: absolute;
+                bottom: -20px;
+                width: max-content;
+                left: 50%;
+                transform: translateX(-50%);
+                font-size: 12px;
+            }
+        }
+
+    }
+
+    >.selector {
+        border-top: solid 1px maroon;
+        margin: 0;
+        padding: 0;
+        height: 20px;
+        line-height: 20px;
+        list-style: none;
+        display: flex;
+
+        >li {
+            text-align: center;
+            cursor: pointer;
+            flex-grow: 1;
+
+            +li {
+                border-left: solid 1px maroon;
+            }
+
+            &:hover,
+            &.-selected {
+                background-color: maroon;
+                color: white;
+            }
+        }
+    }
+}
